@@ -27,8 +27,6 @@ export default function Header() {
         <Link className='header-content__logo' to='/'>
           <img className='header-content__logo-img' src={logo} alt="STAR WARS" />
         </Link>
-        
-
         <div className='header-content-menu'>
           <Link className='header-content-menu__item' to='/'>Home</Link>
           <Link className='header-content-menu__item' to='/Characters'>Characters</Link>

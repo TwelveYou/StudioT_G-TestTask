@@ -38,3 +38,49 @@
 .characters-filter__label{
     margin-right: 18px;
 }
+
+.characters-cards-area{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+
+}
+
+.characters-cards-area_flex-center{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+.characters-button-area{
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.characters-button-area__button{
+    background: #1F2A63;
+    box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+    border-radius: 11px;
+    width: 231px;
+    height: 66px;
+    border: 0;    
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    
+    display: block;
+    margin: 0 auto;
+}
+
+.characters-button-area__button:hover{
+    cursor: pointer;
+    background: #73D677;
+    color: rgba(33, 33, 33, 1);
+}
+
+.characters-button-area__button:active{
+    background: #1F2A63;    
+    color: white;
+    box-shadow: none;
+}

@@ -1,5 +1,4 @@
 import '../styles/Characters.css';
-// import addressAPI from '../data/addressAPI';
 
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,13 +10,18 @@ export default function Characters() {
   const urlAPI = useSelector(state => state.urlAPI);
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useEffect(() => {// on first opening characters, need first time load first page characters
     dispatch({type:'SET_PAGE', payloader: 'Characters'});
     if(characters.length === 0){
       getCharacters();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  })
+
+  useEffect(()=>{ // if next url don't exist in API, then hide adding button 
+    if(urlAPI === null){
+      document.getElementById('button__get-more').style.display = 'none';
+    }
+  },[urlAPI])
 
   async function getCharacters(){
       let data =  await sendAJAXRequestPromise()
@@ -32,9 +36,12 @@ export default function Characters() {
     try{
       if(countFoundedChars === 0){
         dispatch({type:'SET_COUNT_FOUNDED_CHARS', payloader: data.count});
-      }          
+      }
       dispatch({type:'ADD_CHARACTERS', payloader: data.results});
-      dispatch({type:'SET_NEXT_PAGE', payloader: data.next});
+      dispatch({type:'SET_URL_API', payloader: data.next});
+      // if(data.next === 'null'){
+      //   document.getElementById('button__get-more').style.visibility = 'hidden';
+      // }
     } catch(err){
       console.error('Ошибка при распознавании ответа')
       console.error(err);
@@ -51,7 +58,12 @@ export default function Characters() {
       request.onload = function () {
         document.getElementById('loader').style.visibility = 'hidden';
         if (request.status >= 200 && request.status < 300) {
-          resolve(JSON.parse(request.responseText));
+          try{
+            resolve(JSON.parse(request.responseText));
+            console.log(JSON.parse(request.responseText));
+          } catch(e){
+            console.log(e);
+          }
         } else {
           reject(request.status);
         }
@@ -62,14 +74,6 @@ export default function Characters() {
       request.send();
     });
   }
-
-  // function showCards(){
-  //   if(characters.length !== 0){
-  //     return <CharacterCard card={characters[0]}/>
-  //   } else {
-  //     return <div>Downloading cards</div>
-  //   }
-  // }
 
   return (
     <div className='characters'>
@@ -84,12 +88,22 @@ export default function Characters() {
           <option>not all</option>
         </select>
       </div>
-      {/* {showCards()} */}
-      <CharacterCard card={characters[0]}/>
-
-      <button className='characters__button' onClick={()=>console.log(characters)}>Get more characters</button>
-      
-      {/* <div>Вот: {showOneChar()}</div> */}
+      <div className='characters-cards-area'>
+        <div className='characters-cards-area_flex-center'>
+          {characters.map((char, index) => (
+            <CharacterCard card={char} key={index}/>
+          ))}
+        </div>
+      </div>
+      <div className='characters-button-area'>
+        <button 
+          className='characters-button-area__button' 
+          id='button__get-more'
+          onClick={()=>getCharacters()}
+        >
+          Get more
+        </button>
+      </div>
     </div>
   )
 }

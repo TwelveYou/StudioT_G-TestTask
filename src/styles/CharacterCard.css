@@ -1,0 +1,83 @@
+.card-char{
+    background: #F0F0F0;
+    border-radius: 8px;
+    height: 135px;
+    width: 351.8955078125px;
+    box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.2);
+
+    color: #212121;
+    margin-bottom: 45px;
+    
+}
+
+.card-char:hover{
+    cursor: pointer;
+    background: white;
+    box-shadow: 5px 5px 5px 5px rgba(33, 33, 33, 0.2);
+}
+
+.card-char-content{
+    padding: 6px 25px 0;
+}
+
+.card-char-content__name{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 12px;
+}
+
+.card-char-content-in-circle{
+    display: flex;
+    margin-bottom: 12px;
+    min-height: 60px;
+}
+
+.card-char-content-in-circle__param{
+    margin-right: 10px;
+}
+
+.card-char-content-in-circle__param-value{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    height: 35px;
+    width: 38px;
+    border: 3px solid #212121;
+    border-radius: 25px;
+}
+
+.card-char-content-plates{
+    display: flex;
+}
+
+.card-char-content-plates__plate{
+    height: 17px;
+    min-width: 72px;
+    padding: 0 12px;
+    background: rgb(7, 214, 242);
+    box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+    border-radius: 11px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+
+    margin-right: 15px;
+}
+
+.male{
+    background-color: rgb(115, 214, 119);   
+}
+
+.female{
+    background-color: rgb(201, 86, 255);
+}
+
+.hermaphrodite{
+    background-color: rgb(245, 219, 19 );
+}

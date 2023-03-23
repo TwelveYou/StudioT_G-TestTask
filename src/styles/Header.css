@@ -24,6 +24,10 @@
     margin-right: auto;
 }
 
+.header-content__logo__img{
+    margin-right: 40px;
+}
+
 .header-content-menu{
     display: flex;
     flex-wrap: wrap;
