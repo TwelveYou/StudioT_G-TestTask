@@ -1,11 +1,11 @@
 const defaultState = { // начальное состояние хранилища
-    page: 'home',
+    other: null,
   };
 
-export const reducer = (state = defaultState, action) => {
+export const appReducer = (state = defaultState, action) => {
     switch(action.type){
-      case "GET_PAGE": 
-        return {...state, page: action.payloader};
+      case "SET_OTHER": 
+        return {...state, other: action.payloader};
       
       default: 
         return state;
