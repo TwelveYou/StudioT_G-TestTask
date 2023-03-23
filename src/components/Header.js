@@ -22,7 +22,7 @@ export default function Header() {
   }
 
   return (
-    <header className='header'>
+    <header className='header' id='header'>
       <div className='header-content'>
         <Link className='header-content__logo' to='/'>
           <img className='header-content__logo-img' src={logo} alt="STAR WARS" />
@@ -35,7 +35,6 @@ export default function Header() {
           <Link className='header-content-menu__item' to='/Error404'>Error404</Link>
         </div>
       </div>
-
     </header>
   )
 }
