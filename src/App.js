@@ -13,7 +13,7 @@ import PreLoader from './components/PreLoader';
 export default function App() {
   return (
     <div className='app'> 
-      {/* <PreLoader/> */}
+      <PreLoader/>
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>

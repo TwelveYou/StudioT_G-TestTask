@@ -23,7 +23,7 @@
   
   @media (prefers-reduced-motion: no-preference) {
     .loader__icon {
-      animation: loader__icon-spin infinite 1s linear;
+      animation: loader__icon-spin infinite 1.5s linear;
     }
   }
   
