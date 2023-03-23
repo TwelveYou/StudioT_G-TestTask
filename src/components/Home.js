@@ -21,7 +21,7 @@ export default function Home() {
           <p className='home-info__text'>
             You can find out all the information about your favorite characters
           </p>
-          <Link>
+          <Link to='/Characters'>
            <button className='home-info__button'>See more...</button>
           </Link>
         </div>

@@ -32,7 +32,6 @@ export default function Header() {
         <div className='header-content-menu'>
           <Link className='header-content-menu__item' to='/'>Home</Link>
           <Link className='header-content-menu__item' to='/Characters'>Characters</Link>
-          <Link className='header-content-menu__item' to='/Error404'>Error404</Link>
         </div>
       </div>
     </header>

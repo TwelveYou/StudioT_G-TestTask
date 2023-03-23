@@ -1,6 +1,6 @@
 const defaultState = { // начальное состояние хранилища
-    other: null,
     page: 'home',
+    countFoundedChars: 0,
   };
 
 export const reducer = (state = defaultState, action) => {
@@ -8,8 +8,8 @@ export const reducer = (state = defaultState, action) => {
       case "SET_PAGE": 
       return {...state, page: action.payloader};
 
-      case "SET_OTHER": 
-        return {...state, other: action.payloader};
+      case "SET_COUNT_FOUNDED_CHARS": 
+        return {...state, countFoundedChars: action.payloader};
       
       default: 
         return state;

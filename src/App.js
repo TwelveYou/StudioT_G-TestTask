@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Characters from './components/Characters';
 import Error404 from './components/Error404';
+import PreLoader from './components/PreLoader';
 
 
 
@@ -12,6 +13,7 @@ import Error404 from './components/Error404';
 export default function App() {
   return (
     <div className='app'> 
+      {/* <PreLoader/> */}
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>
