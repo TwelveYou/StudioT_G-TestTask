@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from '../data/logo.svg';
 import '../styles/Header.css';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function Header() {
+  const currentPage = useSelector(state => state.page);
+  useEffect(() => {
+    lightCurrentPage();
+  })
+
+  function lightCurrentPage(){
+    let menuItems = document.getElementsByClassName('header-content-menu__item');
+    Array.from(menuItems).forEach((item) => {
+      if(item.textContent === currentPage){
+        item.style = 'border-bottom: 2px solid white;';
+      } else{
+        item.style = '';
+      }
+    })
+  }
+
   return (
     <header className='header'>
       <div className='header-content'>
