@@ -14,7 +14,6 @@ export default function Characters() {
   useEffect(() => {
     dispatch({type:'SET_PAGE', payloader: 'Characters'});
     if(characters.length === 0){
-      // getCharacters();
       firstGetCharacters();
     }
   })
@@ -84,7 +83,6 @@ export default function Characters() {
         if (request.status >= 200 && request.status < 300) {
           try{
             resolve(JSON.parse(request.responseText));
-            console.log(JSON.parse(request.responseText));
           } catch(e){
             console.log(e);
           }
@@ -120,7 +118,7 @@ export default function Characters() {
       <div className='characters-cards-area'>
         <div className='characters-cards-area_flex-center'>
           {characters.map((char, index) => (
-            <CharacterCard card={char} key={index}/>
+            <CharacterCard card={char} key={index} id={index}/>
           ))}
         </div>
       </div>

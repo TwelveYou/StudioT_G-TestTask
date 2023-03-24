@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Characters from './components/Characters';
 import Error404 from './components/Error404';
 import PreLoader from './components/PreLoader';
+import FullCard from './components/FullCard';
 
 
 
@@ -13,6 +14,7 @@ import PreLoader from './components/PreLoader';
 export default function App() {
   return (
     <div className='app'> 
+      <FullCard/>
       <PreLoader/>
       <Header/>
       <Routes>
