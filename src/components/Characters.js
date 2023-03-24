@@ -10,18 +10,44 @@ export default function Characters() {
   const urlAPI = useSelector(state => state.urlAPI);
   const dispatch = useDispatch();
 
-  useEffect(() => {// on first opening characters, need first time load first page characters
+  // on first opening characters, need first time load first page characters
+  useEffect(() => {
     dispatch({type:'SET_PAGE', payloader: 'Characters'});
     if(characters.length === 0){
-      getCharacters();
+      // getCharacters();
+      firstGetCharacters();
     }
   })
 
-  useEffect(()=>{ // if next url don't exist in API, then hide adding button 
+  // if next url don't exist in API, then hide adding button 
+  useEffect(()=>{ 
     if(urlAPI === null){
       document.getElementById('button__get-more').style.display = 'none';
     }
   },[urlAPI])
+
+  async function firstGetCharacters(){
+    let data =  await sendAJAXRequestPromise()
+    .then(function (response) {
+      return response;
+    })
+    .catch(function (err) {
+      document.getElementById('loader').style.visibility = 'hidden';
+      console.error(err.statusText);
+      return null;
+    });
+    if (data === null){
+      alert("App can't connect with API");
+    } else 
+    try{
+      dispatch({type:'SET_COUNT_FOUNDED_CHARS', payloader: data.count});
+      dispatch({type:'SET_CHARACTERS', payloader: data.results});
+      dispatch({type:'SET_URL_API', payloader: data.next});
+    } catch(err){
+      console.error('Ошибка при распознавании ответа')
+      console.error(err);
+    }
+  }
 
   async function getCharacters(){
       let data =  await sendAJAXRequestPromise()
@@ -29,19 +55,17 @@ export default function Characters() {
         return response;
       })
       .catch(function (err) {
+        document.getElementById('loader').style.visibility = 'hidden';
         console.error(err.statusText);
         return null;
       });
 
+    if (data === null){
+      alert("App can't connect with API");
+    } else 
     try{
-      if(countFoundedChars === 0){
-        dispatch({type:'SET_COUNT_FOUNDED_CHARS', payloader: data.count});
-      }
       dispatch({type:'ADD_CHARACTERS', payloader: data.results});
       dispatch({type:'SET_URL_API', payloader: data.next});
-      // if(data.next === 'null'){
-      //   document.getElementById('button__get-more').style.visibility = 'hidden';
-      // }
     } catch(err){
       console.error('Ошибка при распознавании ответа')
       console.error(err);
@@ -69,6 +93,11 @@ export default function Characters() {
         }
       };
       request.onerror = function () {
+        reject(request.status);
+      };
+      request.timeout = 5000;
+      request.ontimeout = function () {
+        document.getElementById('loader').style.visibility = 'hidden';
         reject(request.status);
       };
       request.send();

@@ -14,6 +14,8 @@ export const reducer = (state = defaultState, action) => {
       case "SET_COUNT_FOUNDED_CHARS": 
         return {...state, countFoundedChars: action.payloader};
 
+        case "SET_CHARACTERS": 
+        return {...state, characters: action.payloader};
         case "ADD_CHARACTERS": 
         return {...state, characters: [...state.characters, ...action.payloader]};
 
