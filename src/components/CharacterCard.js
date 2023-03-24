@@ -30,7 +30,7 @@ export default function CharacterCard(props) {
 
   function selectCharacter(){
     dispatch({type: 'SET_CHOSEN_CHARACTER', payloader: props.id});
-    console.log(characters[props.id]);
+    document.getElementById('modal-window').style.visibility = 'visible';
   }
 
   function showCharCard(){

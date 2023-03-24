@@ -1,3 +1,7 @@
+#modal-window{
+    visibility: hidden;
+}
+
 .modal-window__blackout{
     background-color: rgba(0, 0, 0, 0.7);
     width: 100vw;
@@ -50,7 +54,7 @@
 .modal-window-full-card-left-block-plates{
     display: flex;
     flex-wrap: wrap;
-    justify-content: right;
+    justify-content: center;
 }
 
 .modal-window-full-card-left-block-plates__plate{
@@ -95,15 +99,12 @@
 }
 
 .modal-window-full-card-right-block__circle-param{
-    margin-right: 10px;
     color: #212121;
-
     background: #FDFDFD;
     box-shadow: 4px 4px 24px rgba(1, 17, 38, 0.2);
     border-radius: 8px; 
-
     padding: 8px 23px;
-    margin: 0 23px
+    margin-left: 23px;
 }
 
 .modal-window-full-card-right-block__circle-param-value{
@@ -118,18 +119,6 @@
     border: 3px solid #212121;
     border-radius: 25px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 .modal-window__button-close{
     width: 50px;

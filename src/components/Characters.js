@@ -37,7 +37,8 @@ export default function Characters() {
     })
     colors.sort();
     dispatch({type: 'SET_LIST_COLOR_EYE',payloader: colors});
-  },[characters, dispatch])
+    // document.getElementById('select-filter').value = filterColorEye;
+  },[characters, dispatch,filterColorEye])
 
 // firstGetCharacters download first characters by sendAJAXRequestPromise
   async function firstGetCharacters(){
@@ -85,6 +86,7 @@ export default function Characters() {
       console.error('Ошибка при распознавании ответа')
       console.error(err);
     }
+    document.getElementById('select-filter').value = filterColorEye;
   }
 
 // sendAJAXRequestPromise make request
@@ -143,8 +145,13 @@ export default function Characters() {
       </h3>
       <div className='characters-filter'>
         <label className='characters-filter__label'>color eye</label>
-        <select className='characters-filter__select'>
+        <select 
+          className='characters-filter__select' 
+          id='select-filter' 
+          defaultValue={filterColorEye}
+        >
           <option 
+            value='all'
             onClick={()=>dispatch({type: 'SET_FILTER_COLOR_EYE',payloader: 'all'})} 
           >
             all
@@ -152,7 +159,9 @@ export default function Characters() {
           {listColorEye.map((colorEye, index)=>(
             <option  
               onClick={()=>dispatch({type: 'SET_FILTER_COLOR_EYE',payloader: colorEye})} 
+              value={colorEye}
               key={index}
+              selected={colorEye === filterColorEye}
             > 
               {colorEye} 
             </option>

@@ -19,7 +19,7 @@ export default function Header() {
         item.style = '';
       }
     })
-  }
+  } 
 
   return (
     <header className='header' id='header'>

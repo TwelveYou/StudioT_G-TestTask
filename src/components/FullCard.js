@@ -1,4 +1,4 @@
-import '../styles/FullCard.css';
+import '../styles/FullCard.css'; 
 import icon_male from '../data/gender_male.svg';
 import icon_female from '../data/gender_female.svg';
 import icon_hermaphrodite from'../data/gender_hermaphrodite.svg';
@@ -12,9 +12,10 @@ export default function FullCard() {
     const chosenCharacter = useSelector(state => state.chosenCharacter);
     const characters = useSelector(state => state.characters);
 
-    // resetChosenCharacter return 
+// resetChosenCharacter set state chosenCharacter at null and hide modal-window
     function resetChosenCharacter(){
         dispatch({type:'SET_CHOSEN_CHARACTER',preloader: null});
+        document.getElementById('modal-window').style.visibility = 'hidden';
     }
 
     function choseIconChar(gender){
