@@ -4,6 +4,8 @@ const defaultState = { // начальное состояние хранилищ
     characters : [],
     urlAPI : 'http://swapi.dev/api/people/',
     chosenCharacter: null,
+    filterColorEye : 'all',
+    listColorEye: [],
   };
 
 export const reducer = (state = defaultState, action) => {
@@ -24,6 +26,12 @@ export const reducer = (state = defaultState, action) => {
 
       case "SET_CHOSEN_CHARACTER": 
         return {...state, chosenCharacter: action.payloader};
+
+      case "SET_FILTER_COLOR_EYE": 
+        return {...state, filterColorEye: action.payloader};
+
+      case "SET_LIST_COLOR_EYE": 
+        return {...state, listColorEye: action.payloader};
       
       default: 
         return state;

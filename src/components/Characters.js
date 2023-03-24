@@ -8,9 +8,11 @@ export default function Characters() {
   const countFoundedChars = useSelector(state => state.countFoundedChars);
   const characters = useSelector(state => state.characters);
   const urlAPI = useSelector(state => state.urlAPI);
+  const listColorEye = useSelector(state => state.listColorEye);
+  const filterColorEye = useSelector(state => state.filterColorEye);
   const dispatch = useDispatch();
 
-  // on first opening characters, need first time load first page characters
+// on first opening characters, need first time load first page characters
   useEffect(() => {
     dispatch({type:'SET_PAGE', payloader: 'Characters'});
     if(characters.length === 0){
@@ -18,13 +20,26 @@ export default function Characters() {
     }
   })
 
-  // if next url don't exist in API, then hide adding button 
+// if next url don't exist in API, then hide adding button 
   useEffect(()=>{ 
     if(urlAPI === null){
       document.getElementById('button__get-more').style.display = 'none';
     }
   },[urlAPI])
 
+// Change Options in filter by downloaded characters
+  useEffect(()=>{ 
+    let colors = [];
+    Array.from(characters).forEach((char) => {
+      if(!colors.includes(char.eye_color)){
+        colors.push(char.eye_color);
+      } 
+    })
+    colors.sort();
+    dispatch({type: 'SET_LIST_COLOR_EYE',payloader: colors});
+  },[characters, dispatch])
+
+// firstGetCharacters download first characters by sendAJAXRequestPromise
   async function firstGetCharacters(){
     let data =  await sendAJAXRequestPromise()
     .then(function (response) {
@@ -48,6 +63,7 @@ export default function Characters() {
     }
   }
 
+// getCharacters download and add characters in general list by sendAJAXRequestPromise
   async function getCharacters(){
       let data =  await sendAJAXRequestPromise()
       .then(function (response) {
@@ -71,6 +87,7 @@ export default function Characters() {
     }
   }
 
+// sendAJAXRequestPromise make request
   function sendAJAXRequestPromise () {
     return new Promise(function (resolve, reject) {
       var request = new XMLHttpRequest();
@@ -102,6 +119,22 @@ export default function Characters() {
     });
   }
 
+// showFilteredCards return filtered list of cards
+  function showFilteredCards(){
+    let cards;
+    if(filterColorEye === 'all'){
+      cards = characters.map((char, index) => (
+        <CharacterCard card={char} key={'key'+index} id={index}/>
+      ));
+    } 
+    else {
+      cards = characters.filter(char=> char.eye_color === filterColorEye).map((char, index) => (
+        <CharacterCard card={char} key={index} id={characters.indexOf(char)}/>
+      ));
+    }
+    return cards
+  }
+
   return (
     <div className='characters'>
       <p className='characters__language'> language: en </p>
@@ -109,17 +142,26 @@ export default function Characters() {
         {countFoundedChars} <span className='characters__title_bold'>Peoples</span> for you to choose your favorite
       </h3>
       <div className='characters-filter'>
-        <label className='characters-filter__label'>filter</label>
+        <label className='characters-filter__label'>color eye</label>
         <select className='characters-filter__select'>
-          <option value='all'>all</option>
-          <option>not all</option>
+          <option 
+            onClick={()=>dispatch({type: 'SET_FILTER_COLOR_EYE',payloader: 'all'})} 
+          >
+            all
+          </option>
+          {listColorEye.map((colorEye, index)=>(
+            <option  
+              onClick={()=>dispatch({type: 'SET_FILTER_COLOR_EYE',payloader: colorEye})} 
+              key={index}
+            > 
+              {colorEye} 
+            </option>
+          ))}
         </select>
       </div>
       <div className='characters-cards-area'>
         <div className='characters-cards-area_flex-center'>
-          {characters.map((char, index) => (
-            <CharacterCard card={char} key={index} id={index}/>
-          ))}
+          {showFilteredCards()}
         </div>
       </div>
       <div className='characters-button-area'>

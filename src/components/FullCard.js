@@ -12,12 +12,12 @@ export default function FullCard() {
     const chosenCharacter = useSelector(state => state.chosenCharacter);
     const characters = useSelector(state => state.characters);
 
+    // resetChosenCharacter return 
     function resetChosenCharacter(){
         dispatch({type:'SET_CHOSEN_CHARACTER',preloader: null});
     }
 
     function choseIconChar(gender){
-        console.log(characters[chosenCharacter]);
         switch(gender){
             case 'male': 
                 return icon_male;
