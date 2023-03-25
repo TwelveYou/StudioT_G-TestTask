@@ -122,6 +122,10 @@ export default function Characters() {
     });
   }
 
+  function changeSelect(event){
+    dispatch({type: 'SET_FILTER_COLOR_EYE',payloader: event.target.value})
+  }
+
 // showFilteredCards return filtered list of cards
   function showFilteredCards(){
     let cards;
@@ -151,6 +155,7 @@ export default function Characters() {
           className='characters-filter__select' 
           id='select-filter' 
           defaultValue={filterColorEye}
+          onChange={changeSelect}
         >
           <option 
             value='all'
@@ -160,7 +165,7 @@ export default function Characters() {
           </option>
           {listColorEye.map((colorEye, index)=>(
             <option  
-              onClick={()=>dispatch({type: 'SET_FILTER_COLOR_EYE',payloader: colorEye})} 
+              // onClick={()=>dispatch({type: 'SET_FILTER_COLOR_EYE',payloader: colorEye})} 
               value={colorEye}
               key={index}
               selected={colorEye === filterColorEye}
