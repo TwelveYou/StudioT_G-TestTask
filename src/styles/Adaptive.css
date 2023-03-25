@@ -136,6 +136,12 @@
         width: 300px !important;
     }
 
+    .modal-window-full-card-right-block__name{
+        width: 266px !important;
+        font-size: 30px !important;
+    }
+
+
     .modal-window__button-close{
         right: calc(50% - 370px) !important;
     }
@@ -226,7 +232,7 @@
     }
 
     .modal-window__button-close{
-        top: 155px !important; 
+        top: calc(50% - 300px) !important; 
         right: calc(50% - 210px) !important;
     }
 

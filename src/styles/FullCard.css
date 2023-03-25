@@ -128,7 +128,7 @@
     border: 0;
 
     position: fixed;
-    top: 200px;
+    top: calc(50% - 240px);
     right: calc(50% - 470px);
 
     background-color: white;
