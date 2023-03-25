@@ -32,7 +32,7 @@ export default function FullCard() {
     }
     
     function showPlate(property){
-        if(property !== 'n/a' && property !== 'unknown'){
+        if(property !== 'n/a' && property !== 'unknown' && property !== 'none'){
             let plate = 
             <div className={'modal-window-full-card-left-block-plates__plate '+property}>
                 {property}

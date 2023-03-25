@@ -1,12 +1,11 @@
-@media (max-width: 620px) {
+/* @media (max-width: 620px) {
     .header-content__logo, .header-content-menu{
         margin: 0 auto;
     }
-}
+} */
 
 .header{
     background: #1F2A63;
-    /* border-bottom: white 1px solid; */
     box-shadow: 0px 4px 16px white;
     position: relative;
     z-index: 10;
@@ -15,7 +14,7 @@
 .header-content{
     display: flex;
     flex-wrap: wrap;
-    margin: 0 7%;
+    /* margin: 0 7%; */
 }
 
 .header-content__logo{

@@ -3,6 +3,7 @@ import '../styles/Characters.css';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import CharacterCard from './CharacterCard';
+import { Link } from 'react-router-dom';
 
 export default function Characters() {
   const countFoundedChars = useSelector(state => state.countFoundedChars);
@@ -139,7 +140,8 @@ export default function Characters() {
 
   return (
     <div className='characters'>
-      <p className='characters__language'> language: en </p>
+      <Link to='/wookiee'> <p className='characters__language'> language: en </p></Link>
+     
       <h3 className='characters__title'>
         {countFoundedChars} <span className='characters__title_bold'>Peoples</span> for you to choose your favorite
       </h3>

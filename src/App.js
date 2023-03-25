@@ -1,4 +1,5 @@
 import './App.css';
+import './styles/Adaptive.css';
 import { Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';

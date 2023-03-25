@@ -1,8 +1,8 @@
 const defaultState = { // начальное состояние хранилища
     page: 'home',
+    urlAPI : 'http://swapi.dev/api/people/',
     countFoundedChars: 0,
     characters : [],
-    urlAPI : 'http://swapi.dev/api/people/',
     chosenCharacter: null,
     filterColorEye : 'all',
     listColorEye: [],

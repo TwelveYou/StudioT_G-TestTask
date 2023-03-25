@@ -104,6 +104,7 @@
     box-shadow: 4px 4px 24px rgba(1, 17, 38, 0.2);
     border-radius: 8px; 
     padding: 8px 23px;
+    /* margin: 0 23px */
     margin-left: 23px;
 }
 
@@ -127,8 +128,8 @@
     border: 0;
 
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 200px;
+    right: calc(50% - 470px);
 
     background-color: white;
     color:black;

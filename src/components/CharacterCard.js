@@ -19,7 +19,7 @@ export default function CharacterCard(props) {
   }
 
   function showPlate(property){
-    if(property !== 'n/a' && property !== 'unknown'){
+    if(property !== 'n/a' && property !== 'unknown' && property !== 'none'){
       let plate = 
         <div className={'card-char-content-plates__plate '+property}>
           {property}

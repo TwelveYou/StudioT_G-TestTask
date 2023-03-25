@@ -1,6 +1,6 @@
-.characters{
+/* .characters{
     margin: 0 7%;
-}
+} */
 
 .characters__language{
     text-align: right;
@@ -39,18 +39,12 @@
     margin-right: 18px;
 }
 
-.characters-cards-area{
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-between; */
-
-}
-
 .characters-cards-area_flex-center{
-    justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between
+    
+    /* justify-content: space-between; */
+    width: 1155px;
 }
 
 .characters-button-area{
