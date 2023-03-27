@@ -1,5 +1,4 @@
 import React from "react";
-// import CharacterCard from "../components/_TestingCard";
 import CharacterCard from "../components/CharacterCard";
 import FullCard from "../components/FullCard";
 
