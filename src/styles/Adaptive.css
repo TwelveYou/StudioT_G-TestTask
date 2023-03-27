@@ -226,14 +226,20 @@
     .modal-window-full-card-left-block__icon{
         height: 145px !important;
     }
+
+    .modal-window-full-card-right-block__name{
+        font-size: 20px !important;
+        text-align: center;
+        margin: 10px 23px 0 23px !important;
+    }
     
     .modal-window-full-card-right-block__text-params{
         width: 200px !important;
     }
 
     .modal-window__button-close{
-        top: calc(50% - 300px) !important; 
-        right: calc(50% - 210px) !important;
+        right: calc(50% - 140px) !important;
+        top: calc(50% - 230px) !important;
     }
 
     .error404-content-text__4{

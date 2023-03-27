@@ -10,10 +10,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 .error404-content-text__4{
-   font-size: 680px; 
+   font-size: 630px; 
    font-weight: 700;
    color:rgba(255, 255, 255, 0.5);
    /* line-height: 800px; */
@@ -28,7 +29,11 @@
 }
 
 .error404-content-text__0 {
-    width: 620px;
+    width: 570px;
+}
+
+.error404-content-button-area{
+    margin-bottom: 20px;
 }
 
 .error404-content-button-area__button{
@@ -43,8 +48,7 @@
     color: rgba(33, 33, 33, 1);
 
     display: block;
-    margin: 0 auto;
-}
+    margin: 0 auto 20px;}
 
 .error404-content-button-area__button:hover{
     cursor: pointer;

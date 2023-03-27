@@ -4,6 +4,8 @@ import icon_female from '../data/gender_female.svg';
 import icon_hermaphrodite from'../data/gender_hermaphrodite.svg';
 import icon_robot from'../data/gender_robot.svg';
 
+import { getPlateColor } from './CharacterCard';
+
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -34,7 +36,10 @@ export default function FullCard() {
     function showPlate(property){
         if(property !== 'n/a' && property !== 'unknown' && property !== 'none'){
             let plate = 
-            <div className={'modal-window-full-card-left-block-plates__plate '+property}>
+            <div 
+                className={'modal-window-full-card-left-block-plates__plate'}
+                style={{backgroundColor: getPlateColor(property)}}
+            >
                 {property}
             </div>
             return plate;
@@ -61,7 +66,7 @@ export default function FullCard() {
                 <div className='modal-window-full-card'>
                     <div className='modal-window-full-card-left-block'>
                         <div className='modal-window-full-card-left-block__icon'>
-                            <img src={choseIconChar(characters[chosenCharacter].gender)} alt='Иконка' width="250" />
+                            <img src={choseIconChar(characters[chosenCharacter].gender)} alt='Icon gender' width="250" />
                         </div>
                         <div className='modal-window-full-card-left-block-plates'>
                             {showPlate(characters[chosenCharacter].gender)}

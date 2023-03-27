@@ -1,4 +1,4 @@
-const defaultState = { // начальное состояние хранилища
+export const defaultState = { // начальное состояние хранилища
     page: 'home',
     urlAPI : 'http://swapi.dev/api/people/',
     countFoundedChars: 0,

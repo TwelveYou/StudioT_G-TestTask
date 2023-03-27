@@ -70,7 +70,8 @@
     height: 17px;
     min-width: 72px;
     padding: 0 12px;
-    background: rgb(7, 214, 242);
+    /* background-color: #07d6f2; */
+    background-color: #fff;
     box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
     border-radius: 11px;
 
@@ -82,14 +83,14 @@
     margin-right: 15px;
 }
 
-.male{
-    background-color: rgb(115, 214, 119);   
+/* .male{
+    background-color: #73d677;   
 }
 
 .female{
-    background-color: rgb(201, 86, 255);
+    background-color: #c956ff;
 }
 
 .hermaphrodite{
-    background-color: rgb(245, 219, 19 );
-}
+    background-color: #f5db13;
+} */

@@ -3,6 +3,25 @@ import '../styles/CharacterCard.css';
 import React from 'react';
 import {  useDispatch, useSelector } from 'react-redux';
 
+export function getPlateColor(property){
+  let colorPlate
+  switch (property) {
+    case 'male':
+      colorPlate = 'rgb(115, 214, 119)';
+      break;
+    case 'female':
+      colorPlate = 'rgb(201, 86, 255)';
+      break;
+    case 'hermaphrodite':
+      colorPlate = 'rgb(245, 219, 19)';
+      break;
+    default:
+      colorPlate = 'rgb(7, 215, 242)';
+      break;
+  }
+  return colorPlate;
+}
+
 export default function CharacterCard(props) {
   const dispatch = useDispatch();
   const characters = useSelector(state => state.characters);
@@ -21,7 +40,10 @@ export default function CharacterCard(props) {
   function showPlate(property){
     if(property !== 'n/a' && property !== 'unknown' && property !== 'none'){
       let plate = 
-        <div className={'card-char-content-plates__plate '+property}>
+        <div 
+          className={'card-char-content-plates__plate'}
+          style={{backgroundColor: getPlateColor(property)}}
+        >
           {property}
         </div>
       return plate;
